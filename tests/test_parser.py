@@ -34,8 +34,7 @@ def test_get_parser():
     assert python_parser.language is not None
 
 def test_parse_file(tmp_path: Path):
-    py_file = tmp_path / "test_script.py"
-    py_file.write_text("def hello():\n    print('Hello, world!')")
+    py_file = Path(__file__).resolve().parent / "helper/hello.py"
 
     root_node = parse_file(py_file)
     assert isinstance(root_node, Node)

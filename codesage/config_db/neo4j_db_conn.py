@@ -1,7 +1,8 @@
 import os
+from typing import Any
+
 from dotenv import load_dotenv
 from neo4j import GraphDatabase
-from typing import Any
 from neo4j.exceptions import Neo4jError
 
 load_dotenv()
@@ -26,8 +27,11 @@ class Neo4jClient:
     def close(self) -> None:
         """closes the connection with neo4j db"""
         self.driver.close()
-    
-    def execute_query(self, query: str, params: dict[str, Any] | None = None) -> list[dict[str, Any]]:
+
+    def execute_query(
+            self, query: str,
+            params: dict[str, Any] | None = None
+        ) -> list[dict[str, Any]]:
         """executes a cypher query and returns the results."""
         with self.driver.session() as session:
             try:
@@ -36,5 +40,3 @@ class Neo4jClient:
             except Neo4jError as e:
                 print(f"Error executing query: {e}")
                 return []
-            
-    

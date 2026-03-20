@@ -11,7 +11,7 @@ def main() -> None:
         # clears db
         client.execute_query("MATCH (n) DETACH DELETE n")
         print("cleared database")
-        
+
         # Create sample nodes
         client.execute_query(
             """
@@ -27,7 +27,7 @@ def main() -> None:
             "MATCH (p:Person) RETURN p.name AS name"
         )
         print("people in database:", result)
-        
+
     finally:
         client.close()
 
