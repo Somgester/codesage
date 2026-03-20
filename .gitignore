@@ -5,9 +5,11 @@ __pycache__/
 *.so
 .Python
 build/
+.ruff_cache/
 
 # Virtual Environment
 code-sage-env/
+.venv/
 
 # IDE
 .idea/
@@ -32,3 +34,5 @@ docker-compose.override.yml
 *.log
 logs/
 
+# doc
+codesage_v1_software_spec.pdf
